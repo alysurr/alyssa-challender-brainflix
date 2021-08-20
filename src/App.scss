@@ -14,10 +14,70 @@ h1,h2,h3,h4,h5,h6,p,label {
     color: #323232;
 }
 
+h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 900;
+    font-style: normal;
+}
 
+h2 {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 900;
+    font-style: normal;
+}
+
+h4 {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 300;
+    font-style: normal;
+}
+
+h6, label {
+    font-size: 12px;
+    line-height: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-style: normal;
+    color: #E1E1E1;
+}
+
+p {
+    font-size: 13px;
+    line-height: 18px;
+}
 
 // ----- Header Component -----
 
+header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.header__logo {
+    height: 2rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.header__input {
+    height: 3rem;
+    width: 90%;
+    background-color: #FAFAFA;
+    border: 2px solid #E1E1E1;
+    border-radius: 5px;
+}
+
+.header__img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: left;
+}
 
 
 

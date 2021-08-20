@@ -3,7 +3,7 @@ import React from 'react'
 export default function Comments() {
     return (
         <section className="comment">
-            <h5 className="comment__counter">Comments</h5>
+            <h2 className="comment__counter">Comments</h2>
         
         <div className="comment__form">
             <aside><img src="" alt="" className="comment__img" /></aside>

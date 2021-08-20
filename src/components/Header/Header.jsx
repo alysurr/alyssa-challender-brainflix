@@ -12,16 +12,15 @@ export default function Header() {
     const [searchTerm, setSearchTerm] = useState('');
     return (
         <header>
-            <div className="header__logo-container">
-                <a href="/"><img
+            <a href="/"><img
                     src={logo}
                     alt="brainflix logo"
                     className="header__logo"
                 /></a>
-            </div>
             <input
                 type="text"
                 placeholder="Search"
+                className="header__input"
                 onChange={event => {setSearchTerm(event.target.value);
                 }}
             />
