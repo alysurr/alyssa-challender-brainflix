@@ -1,10 +1,33 @@
-@use './partials/comments';
-@use './partials/header';
-@use './partials/info';
-@use './partials/sidebar';
-@use './partials/video';
-@use './partials/mixins' as *;
-@use './partials/partials' as *;
-@use './partials/typography' as *;
+@use 'partials/mixins' as *;
+@use 'partials/partials' as *;
+@use 'partials/typography' as *;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// ----- Fonts -----
+h1,h2,h3,h4,h5,h6,p,label {
+    font-family: 'Avenir';
+    color: #323232;
+}
 
 
+
+// ----- Header Component -----
+
+
+
+
+// ----- Video Component -----
+
+
+// ----- Video Info Component ----- 
+
+
+// ----- Comments Component ----- 
+
+
+// ----- Sidebar Component ----- 
