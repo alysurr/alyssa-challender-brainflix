@@ -12,32 +12,37 @@ export default function Header() {
     const [searchTerm, setSearchTerm] = useState('');
     return (
         <header>
-            <a href="/"><img
-                    src={logo}
-                    alt="brainflix logo"
-                    className="header__logo"
-                /></a>
-            <div className="header__search-bar">    
-            <input
-                type="text"
-                placeholder="Search"
-                className="header__input"
-            />  
-                <img src={searchIcon} alt="" className="header__search-icon" />
-            </div>
-            <div className="header__upload">
-                <button className="header__button">
+            <div className="header__container-logo">
+                <a href="/">
                     <img
-                        src={uploadIcon}
-                        alt="upload icon"
-                        className="header__icon"
+                        src={logo}
+                        alt="brainflix logo"
+                        className="header__logo"
                     />
-                    upload</button>
-            
-                <img src={profileImg}
-                alt="user profile default" className="header__img"
-                />
+                </a>
             </div>
+            <div className="header__container">
+            <div className="header__search-bar">    
+                <input
+                    type="text"
+                    placeholder="Search"
+                    className="header__input"
+                />  
+                    <img src={searchIcon} alt="" className="header__search-icon" />
+                </div>
+                <div className="header__upload">
+                    <button className="header__button">
+                        <img
+                            src={uploadIcon}
+                            alt="upload icon"
+                            className="header__icon"
+                        />
+                        upload</button>
+                
+                    <img src={profileImg}
+                    alt="user profile default" className="header__img"
+                    />
+            </div></div>
         </header>
     )
 }

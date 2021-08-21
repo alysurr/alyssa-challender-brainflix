@@ -19,33 +19,45 @@ h1 {
     line-height: 32px;
     font-weight: 900;
     font-style: normal;
+    @include tablet {
+        font-size: 36px;
+        line-height: 40px;
+    }
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 22px;
     font-weight: 900;
     font-style: normal;
+    @include tablet {
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
 h4 {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 18px;
     font-weight: 300;
     font-style: normal;
+    @include tablet {
+        font-size: 16px;
+        line-height: 22px;
+    }
 }
 
 h6, label {
     font-size: 12px;
     line-height: 20px;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: bold;
     font-style: normal;
-    color: #E1E1E1;
+    color: $brainflix-silver;
 }
 
 p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 18px;
 }
 
@@ -59,17 +71,25 @@ header {
     
     @include tablet {
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: space-between;
         margin: 1rem 2rem;
     }
     @include desktop {
-        margin: 1rem 6rem;
+        margin: 1rem 8rem;
     }
 }
 
 .header__logo {
     height: 1.5rem;
     margin-top: 0.5rem;
+}
+
+.header__container {
+    margin-bottom: 1rem;
+    @include tablet {
+        display: inline-flex;
+        align-items: center;
+    }
 }
 
 .header__search-bar {
@@ -85,7 +105,7 @@ header {
     height: 3rem;
     width: 90vw;
     @include tablet {
-        width: 30vw;
+        width: 15rem;
     }
 }
 
@@ -139,17 +159,161 @@ header {
     left: 1rem;
 }
 
-
 // ----- Video Component -----
 
-.video {
-    margin: 1rem 0;
+video {
+    width: 100%;
+    max-height: 100%;
 }
 
 // ----- Video Info Component ----- 
 
+.video-info {
+    margin: 1rem;
+    @include tablet {
+        margin: 1rem 2rem;
+    }
+    @include desktop {
+        margin: 1rem 8rem;
+    }
+    &__date {
+        margin-left: 1rem;
+        color: $brainflix-silver;
+    }
+    &__stats {
+        margin-left: 0.5rem;
+        margin-right: 1rem;
+    }
+    &__subheader {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $brainflix-silver;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top: 1rem;
+        }
+        &--left {
+            display: inline-flex;
+            align-items: center;
+            padding-bottom: 1rem;
+            @include tablet {
+                padding-bottom: 0;
+            }
+        }
+        &--right {
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+    &__description {
+        margin: 1rem 0;
+        @include tablet {
+            width: 70vw;
+        }
+    }
+}
 
 // ----- Comments Component ----- 
 
+.comment {
+    margin: 1rem;
+    @include tablet {
+        margin: 1rem 2rem;
+    }
+    @include desktop {
+        margin: 1rem 8rem;
+    }
+    &__counter {
+        padding: 1rem 0;
+    }
+    &__label {
+        margin-left: 4rem;
+    }
+    &__img {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 100%;
+        object-fit: cover;
+        object-position: left;
+    }
+    &__form-container {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $brainflix-silver;
+        padding-bottom: 1rem;
+    }
+    
+    &__form {
+        margin-left: 1rem;
+
+        @include tablet {
+            display: inline-flex;
+            width: 100%;
+        }
+    }
+    &__input {
+        background-color: $brainflix-albaster;
+        border: 2px solid $brainflix-mercury;
+        border-radius: 4px;
+        padding: .75rem;
+        height: 6rem;
+        color: #000;
+        overflow-wrap: break-word;
+        width: 100%;
+        font-family: 'Avenir';
+        resize: none;
+        @include tablet {
+            height: 3rem;
+            width: 27rem;
+        }
+    }
+    &__button {
+        background-color: $brainflix-blue;
+        text-transform: uppercase;
+        margin-top: 1rem;
+        color: white;
+        height: 3rem;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        font-weight: bold;
+        @include tablet {
+            width: 10rem;
+            margin: 0 1rem;
+
+        }
+    }
+}
+
 
 // ----- Sidebar Component ----- 
+
+.sidebar {
+    margin: 1rem;
+    @include tablet {
+        margin: 1rem 2rem;
+        max-width: 50%;
+    }
+    @include desktop {
+        margin: 1rem 8rem;
+    }
+    &__header {
+        margin: 2rem 0;
+    }
+    &__container {
+        display: inline-flex;
+    }
+    &__thumbnail {
+        height: 70px;
+        width: 120px;
+        border-radius: 5px;
+    }
+    &__info {
+        padding-left: 1rem;
+    }
+    &__title {
+        margin-bottom: .5rem;
+    }
+}
