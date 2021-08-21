@@ -1,5 +1,5 @@
-@use 'partials/mixins' as *;
-@use 'partials/partials' as *;
+@import 'partials/mixins';
+@import 'partials/partials';
 @use 'partials/typography' as *;
 
 *, *::before, *::after {
@@ -11,7 +11,7 @@
 // ----- Fonts -----
 h1,h2,h3,h4,h5,h6,p,label {
     font-family: 'Avenir';
-    color: #323232;
+    color: $brainflix-black;
 }
 
 h1 {
@@ -53,22 +53,50 @@ p {
 
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-end;
+        margin: 1rem 2rem;
+    }
+    @include desktop {
+        margin: 1rem 6rem;
+    }
 }
 
 .header__logo {
-    height: 2rem;
-    width: 100%;
-    margin: 1rem 0;
+    height: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.header__search-bar {
+    margin: 0.5rem 0;
+    position: relative;
+
 }
 
 .header__input {
-    height: 3rem;
-    width: 90%;
     background-color: #FAFAFA;
     border: 2px solid #E1E1E1;
     border-radius: 5px;
+    height: 3rem;
+    width: 90vw;
+    @include tablet {
+        width: 30vw;
+    }
+}
+
+.header__input::placeholder {
+    padding-left: 3rem;
+    font-size: 14px;
+    color: #323232;
+}
+
+.header__upload {
+    display: inline-flex;
 }
 
 .header__img {
@@ -77,12 +105,46 @@ header {
     border-radius: 100%;
     object-fit: cover;
     object-position: left;
+    margin-left: 1rem;
 }
 
+.header__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    border: none;
+    color: #fff;
+    background-color: #0095ff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-style: normal;
+    text-transform: uppercase;
+    @include tablet {
+        width: 15vw;
+        margin-left: 1rem;
+    }
+    @include desktop {
+        width: 10vw;
+    }
+}
+
+.header__icon {
+    padding-right: 1rem;
+}
+
+.header__search-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
 
 
 // ----- Video Component -----
 
+.video {
+    margin: 1rem 0;
+}
 
 // ----- Video Info Component ----- 
 

@@ -17,33 +17,26 @@ export default function Header() {
                     alt="brainflix logo"
                     className="header__logo"
                 /></a>
+            <div className="header__search-bar">    
             <input
                 type="text"
                 placeholder="Search"
                 className="header__input"
-                onChange={event => {setSearchTerm(event.target.value);
-                }}
-            />
-            {searchData.filter((val) => {
-                if (searchTerm === "") {
-                    return val
-                } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-                    return val
-                }
-            }).map((val, key) => {
-                return (
-                    <div className="searchResults" key={key}></div>
-                )
-            })}
-            <button className="header__button">
-                <img
-                    src={uploadIcon}
-                    alt="upload icon"
-                    className="header__icon"
+            />  
+                <img src={searchIcon} alt="" className="header__search-icon" />
+            </div>
+            <div className="header__upload">
+                <button className="header__button">
+                    <img
+                        src={uploadIcon}
+                        alt="upload icon"
+                        className="header__icon"
+                    />
+                    upload</button>
+            
+                <img src={profileImg}
+                alt="user profile default" className="header__img"
                 />
-                upload</button>
-            <div className="header__img-container">
-                <img src={profileImg}alt="user profile default" className="header__img" />
             </div>
         </header>
     )

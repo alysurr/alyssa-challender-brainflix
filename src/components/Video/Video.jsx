@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Video() {
     return (
-        <video></video>
+        <div className="video">
+            <video controls width="320"></video>
+        </div>
     )
 }
