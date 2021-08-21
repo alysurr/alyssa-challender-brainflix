@@ -11,7 +11,7 @@ export default function Sidebar() {
                     className="sidebar__thumbnail"
                 />
                 <div className="sidebar__info">
-                    <h5 className="sidebar__title">Filler Title</h5>
+                    <h5 className="sidebar__title">Filler Title Filler Title Filler Title Filler Title</h5>
                     <p className="sidebar__creator">Filler Creator</p>
                 </div>
             </div>

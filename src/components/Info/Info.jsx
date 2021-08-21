@@ -5,7 +5,7 @@ import likeIcon from '../../assets/Icons/Icon-likes.svg';
 export default function Info() {
     return (
         <section className="video-info">
-            <h1 className="video-info__header">Video Title</h1>
+            <h1 className="video-info__header">BMX Rampage: 2018 Highlights</h1>
             <div className="video-info__subheader">
                 <div className="video-info__subheader--left">
                     <h2 className="video-info__author">By Filler</h2>

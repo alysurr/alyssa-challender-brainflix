@@ -31,8 +31,8 @@ h2 {
     font-weight: 900;
     font-style: normal;
     @include tablet {
-        font-size: 24px;
-        line-height: 32px;
+        font-size: 18px;
+        line-height: 22px;
     }
 }
 
@@ -59,6 +59,22 @@ h6, label {
 p {
     font-size: 14px;
     line-height: 18px;
+}
+
+// ----- Container -----
+
+@include desktop {
+    .container {
+        display: flex;
+        &--left {
+            width: 60vw;
+        }
+        &--right {
+            border-left:  1px solid $brainflix-silver;
+            padding-left: 1rem;
+            padding-right: 8rem;
+        }
+    }
 }
 
 // ----- Header Component -----
@@ -174,7 +190,7 @@ video {
         margin: 1rem 2rem;
     }
     @include desktop {
-        margin: 1rem 8rem;
+        margin: 1rem 0 1rem 8rem;
     }
     &__date {
         margin-left: 1rem;
@@ -205,12 +221,16 @@ video {
         &--right {
             display: inline-flex;
             align-items: center;
+            padding-right: 2rem;
         }
     }
     &__description {
         margin: 1rem 0;
         @include tablet {
             width: 70vw;
+        }
+        @include desktop {
+            width: 40vw;
         }
     }
 }
@@ -223,7 +243,7 @@ video {
         margin: 1rem 2rem;
     }
     @include desktop {
-        margin: 1rem 8rem;
+        margin: 1rem 0 1rem 8rem;
     }
     &__counter {
         padding: 1rem 0;
@@ -240,9 +260,15 @@ video {
     }
     &__form-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: left;
         border-bottom: 1px solid $brainflix-silver;
         padding-bottom: 1rem;
+        @include tablet {
+            justify-content: left;
+        }
+        @include desktop {
+            width: 100%;
+        }
     }
     
     &__form {
@@ -250,7 +276,9 @@ video {
 
         @include tablet {
             display: inline-flex;
-            width: 100%;
+        }
+        @include desktop {
+
         }
     }
     &__input {
@@ -261,12 +289,15 @@ video {
         height: 6rem;
         color: #000;
         overflow-wrap: break-word;
-        width: 100%;
+        width: 70vw;
         font-family: 'Avenir';
         resize: none;
         @include tablet {
             height: 3rem;
-            width: 27rem;
+            width: 40vw;
+        }
+        @include desktop {
+            width: 20vw;
         }
     }
     &__button {
@@ -277,12 +308,11 @@ video {
         height: 3rem;
         border-radius: 5px;
         border: none;
-        width: 100%;
+        width: 70vw;
         font-weight: bold;
         @include tablet {
             width: 10rem;
             margin: 0 1rem;
-
         }
     }
 }
@@ -297,7 +327,8 @@ video {
         max-width: 50%;
     }
     @include desktop {
-        margin: 1rem 8rem;
+        margin: 0;
+        max-width: none;
     }
     &__header {
         margin: 2rem 0;
