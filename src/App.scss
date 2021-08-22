@@ -36,6 +36,13 @@ h2 {
     }
 }
 
+h3 {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 900;
+    font-style: normal;
+}
+
 h4 {
     font-size: 14px;
     line-height: 18px;
@@ -66,9 +73,6 @@ p {
 @include desktop {
     .container {
         display: flex;
-        &--left {
-            width: 60vw;
-        }
         &--right {
             border-left:  1px solid $brainflix-silver;
             padding-left: 1rem;
@@ -103,6 +107,7 @@ header {
 .header__container {
     margin-bottom: 1rem;
     @include tablet {
+        margin-bottom: 0;
         display: inline-flex;
         align-items: center;
     }
@@ -133,6 +138,8 @@ header {
 
 .header__upload {
     display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .header__img {
@@ -148,7 +155,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70vw;
+    width: 100%;
     border: none;
     color: #fff;
     background-color: #0095ff;
@@ -191,6 +198,7 @@ video {
     }
     @include desktop {
         margin: 1rem 0 1rem 8rem;
+        width: 55vw;
     }
     &__date {
         margin-left: 1rem;
@@ -230,7 +238,7 @@ video {
             width: 70vw;
         }
         @include desktop {
-            width: 40vw;
+            width: 38vw;
         }
     }
 }
@@ -266,9 +274,6 @@ video {
         @include tablet {
             justify-content: left;
         }
-        @include desktop {
-            width: 100%;
-        }
     }
     
     &__form {
@@ -276,9 +281,6 @@ video {
 
         @include tablet {
             display: inline-flex;
-        }
-        @include desktop {
-
         }
     }
     &__input {
@@ -294,10 +296,7 @@ video {
         resize: none;
         @include tablet {
             height: 3rem;
-            width: 40vw;
-        }
-        @include desktop {
-            width: 20vw;
+            width: 27rem;
         }
     }
     &__button {
@@ -317,6 +316,40 @@ video {
     }
 }
 
+.comments {
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid $brainflix-silver;
+        padding: 1rem 0;
+    }
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        @include tablet {
+            justify-content: left;
+        }
+    }
+    &__date {
+        color: $brainflix-silver;
+        margin-left: 1rem;
+    }
+    &__text {
+        width: 100%;
+        padding-left: 4rem;
+        @include tablet {
+            width: 95%;
+        }
+    }
+    &__img-placeholder {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 100%;
+        background-color: $brainflix-mercury;
+    }
+}
+
 
 // ----- Sidebar Component ----- 
 
@@ -324,7 +357,7 @@ video {
     margin: 1rem;
     @include tablet {
         margin: 1rem 2rem;
-        max-width: 50%;
+        max-width: 40%;
     }
     @include desktop {
         margin: 0;
@@ -335,6 +368,7 @@ video {
     }
     &__container {
         display: inline-flex;
+        margin-bottom: 1rem;
     }
     &__thumbnail {
         height: 70px;

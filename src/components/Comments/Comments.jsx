@@ -1,7 +1,7 @@
 import React from 'react'
 import profileImg from '../../assets/Images/Mohan-muruge.jpg';
 
-export default function Comments() {
+export default function Comments(props) {
     return (
         <section className="comment">
             <h2 className="comment__counter">Comments</h2>
@@ -17,7 +17,20 @@ export default function Comments() {
         </div>
 
         <div className="comments">
-            
+            {props.detail.comments.map(comment => {
+                    return (
+                        <article key={comment.id} class="comments__container">
+                            <aside>
+                                <div className="comments__img-placeholder"></div>
+                            </aside>
+                            <div class="comments__flex">
+                                <h3 class="comments__name">{comment.name}</h3>
+                                <p class="comments__date">{comment.timestamp}</p>
+                            </div>
+                            <p class="comments__text">{comment.comment}</p>
+                        </article>
+                    )
+                })}
         </div>
         </section>
     )
