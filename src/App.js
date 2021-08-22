@@ -41,7 +41,7 @@ class App extends React.Component  {
         </div>
         <div className="container--right">
           <Sidebar
-            videos={this.state.videos}
+            videos={this.state.videos.filter(video => this.state.selectedVideo.id !== video.id)}
             handleClick={this.changeVideo} />
         </div>
       </div>

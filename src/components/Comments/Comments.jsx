@@ -4,7 +4,7 @@ import profileImg from '../../assets/Images/Mohan-muruge.jpg';
 export default function Comments(props) {
     return (
         <section className="comment">
-            <h2 className="comment__counter">Comments</h2>
+            <h2 className="comment__counter"> {props.detail.comments.length} Comments</h2>
             <h6 className="comment__label">Join the Conversation</h6>
         <div className="comment__form-container">
             
@@ -19,15 +19,15 @@ export default function Comments(props) {
         <div className="comments">
             {props.detail.comments.map(comment => {
                     return (
-                        <article key={comment.id} class="comments__container">
+                        <article key={comment.id} className="comments__container">
                             <aside>
                                 <div className="comments__img-placeholder"></div>
                             </aside>
-                            <div class="comments__flex">
-                                <h3 class="comments__name">{comment.name}</h3>
-                                <p class="comments__date">{comment.timestamp}</p>
+                            <div className="comments__flex">
+                                <h3 className="comments__name">{comment.name}</h3>
+                                <p className="comments__date">{comment.timestamp}</p>
                             </div>
-                            <p class="comments__text">{comment.comment}</p>
+                            <p className="comments__text">{comment.comment}</p>
                         </article>
                     )
                 })}
