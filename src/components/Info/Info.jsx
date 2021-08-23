@@ -9,7 +9,9 @@ export default function Info(props) {
             <div className="video-info__subheader">
                 <div className="video-info__subheader--left">
                     <h2 className="video-info__author">By {props.detail.channel}</h2>
-                    <h4 className="video-info__date">{props.detail.timestamp}</h4>
+                    <h4 className="video-info__date">
+                    {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(props.detail.timestamp)}
+                    </h4>
                 </div>
                 <div className="video-info__subheader--right">
                     <img src={viewIcon} alt="" className="video-info__icon" />

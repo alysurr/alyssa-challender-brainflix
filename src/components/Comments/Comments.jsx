@@ -23,11 +23,13 @@ export default function Comments(props) {
                             <aside>
                                 <div className="comments__img-placeholder"></div>
                             </aside>
-                            <div className="comments__flex">
-                                <h3 className="comments__name">{comment.name}</h3>
-                                <p className="comments__date">{comment.timestamp}</p>
-                            </div>
-                            <p className="comments__text">{comment.comment}</p>
+                            <div className="comments__inner">
+                                <div className="comments__flex">
+                                    <h3 className="comments__name">{comment.name}</h3>
+                                    <p className="comments__date">{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit'}).format(comment.timestamp)}</p>
+                                </div>
+                                <p className="comments__text">{comment.comment}</p>
+                                </div>
                         </article>
                     )
                 })}

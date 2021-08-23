@@ -13,11 +13,11 @@ export default function Sidebar(props) {
                         className="sidebar__container"
                         onClick={() => props.handleClick(video.id)}
                     >
-                        <img
+                        <div className="sidebar__img"><img
                             src={video.image}
                             alt="thumbnail for video"
                             className="sidebar__thumbnail"
-                        />
+                        /></div>
                         <div className="sidebar__info">
                             <h5 className="sidebar__title">{video.title}</h5>
                             <p className="sidebar__creator">{video.channel}</p>

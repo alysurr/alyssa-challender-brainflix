@@ -15,48 +15,48 @@ h1,h2,h3,h4,h5,h6,p,label {
 }
 
 h1 {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 900;
     font-style: normal;
     @include tablet {
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 2.25rem;
+        line-height: 2.5rem;
     }
 }
 
 h2 {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 1rem;
+    line-height: 1.375rem;
     font-weight: 900;
     font-style: normal;
     @include tablet {
-        font-size: 18px;
+        font-size:1.125rem;
         line-height: 22px;
     }
 }
 
 h3 {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height:1.125rem;
     font-weight: 900;
     font-style: normal;
 }
 
 h4 {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height:1.125rem;
     font-weight: 300;
     font-style: normal;
     @include tablet {
-        font-size: 16px;
-        line-height: 22px;
+        font-size: 1rem;
+        line-height: 1.375rem;
     }
 }
 
 h6, label {
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.75rem;
+    line-height: 1.25;
     text-transform: uppercase;
     font-weight: bold;
     font-style: normal;
@@ -64,8 +64,8 @@ h6, label {
 }
 
 p {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height:1.125rem;
 }
 
 // ----- Container -----
@@ -132,7 +132,7 @@ header {
 
 .header__input::placeholder {
     padding-left: 3rem;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #323232;
 }
 
@@ -205,7 +205,6 @@ video {
     }
     @include desktop {
         margin: 2rem 0 2rem 8rem;
-        width: 55vw;
     }
     &__date {
         margin-left: 1rem;
@@ -326,13 +325,20 @@ video {
 .comments {
     &__container {
         display: flex;
-        flex-wrap: wrap;
         border-bottom: 1px solid $brainflix-silver;
         padding: 1rem 0;
     }
+    &__inner {
+        width: 75vw;
+        padding-left: 1rem;
+        @include desktop {
+            width: 85%;
+        }
+    }
     &__flex {
+        display: flex;
         justify-content: space-between;
-        padding: 0 1rem;
+        padding-bottom: 1rem;
         @include tablet {
             justify-content: left;
         }
@@ -340,13 +346,6 @@ video {
     &__date {
         color: $brainflix-silver;
         margin-left: 1rem;
-    }
-    &__text {
-        width: 100%;
-        padding-left: 4rem;
-        @include tablet {
-            width: 95%;
-        }
     }
     &__img-placeholder {
         height: 3rem;
@@ -363,22 +362,21 @@ video {
     margin: 1rem;
     @include tablet {
         margin: 1rem 2rem;
-        max-width: 40%;
+        max-width: 40vw;
     }
     @include desktop {
         margin: 0;
-        max-width: none;
     }
     &__header {
         margin: 2rem 0;
     }
     &__container {
-        display: inline-flex;
+        display: flex;
         margin-bottom: 1rem;
     }
     &__thumbnail {
-        height: 70px;
-        width: 120px;
+        height: 4.375rem;
+        width: 7.5rem;
         border-radius: 5px;
     }
     &__info {
@@ -386,5 +384,9 @@ video {
     }
     &__title {
         margin-bottom: .5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
     }
 }
