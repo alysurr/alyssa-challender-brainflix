@@ -6,7 +6,7 @@ import uploadIcon from '../../assets/Icons/Icon-upload.svg';
 import searchData from '../../data/videos.json';
 import './Header.scss';
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
@@ -32,13 +32,14 @@ export default function Header() {
                     <img src={searchIcon} alt="" className="header__search-icon" />
                 </div>
                 <div className="header__upload">
-                    <button className="header__button">
+
+                    <Link to="/upload"><div className="header__button">
                         <img
                             src={uploadIcon}
                             alt="upload icon"
                             className="header__icon"
                         />
-                        upload</button>
+                        upload</div></Link>
                 
                     <img src={profileImg}
                     alt="user profile default" className="header__img"
