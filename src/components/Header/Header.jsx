@@ -4,6 +4,7 @@ import logo from '../../assets/Logo/Logo-brainflix.svg';
 import searchIcon from '../../assets/Icons/Icon-search.svg';
 import uploadIcon from '../../assets/Icons/Icon-upload.svg';
 import searchData from '../../data/videos.json';
+import './Header.scss';
 import { useState } from 'react';
 
 

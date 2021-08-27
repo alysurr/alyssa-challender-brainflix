@@ -1,0 +1,40 @@
+@import "../../partials/mixins";
+@import "../../partials/partials";
+@import "../../App";
+@use '../../partials/typography' as *;
+
+// ----- Sidebar Component -----
+
+.sidebar {
+  margin: 1rem;
+  @include tablet {
+    margin: 1rem 2rem;
+    max-width: 40vw;
+  }
+  @include desktop {
+    margin: 0;
+  }
+  &__header {
+    margin: 2rem 0;
+  }
+  &__container {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  &__thumbnail {
+    height: 4.375rem;
+    width: 7.5rem;
+    border-radius: 5px;
+  }
+  &__info {
+    padding-left: 1rem;
+  }
+  &__title {
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+

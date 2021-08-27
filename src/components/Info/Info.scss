@@ -1,0 +1,57 @@
+@import "../../partials/mixins";
+@import "../../partials/partials";
+@import "../../App";
+@use '../../partials/typography' as *;
+
+// ----- Video Info Component -----
+
+.video-info {
+  margin: 1rem;
+  @include tablet {
+    margin: 3rem 2rem;
+  }
+  @include desktop {
+    margin: 2rem 0 2rem 8rem;
+  }
+  &__date {
+    margin-left: 1rem;
+    color: $brainflix-silver;
+  }
+  &__stats {
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+  }
+  &__subheader {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $brainflix-silver;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 1rem;
+    }
+    &--left {
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: 1rem;
+      @include tablet {
+        padding-bottom: 0;
+      }
+    }
+    &--right {
+      display: inline-flex;
+      align-items: center;
+      padding-right: 2rem;
+    }
+  }
+  &__description {
+    margin: 1rem 0;
+    @include tablet {
+      width: 70vw;
+    }
+    @include desktop {
+      width: 38vw;
+    }
+  }
+}

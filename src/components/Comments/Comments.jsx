@@ -1,5 +1,6 @@
 import React from 'react'
 import profileImg from '../../assets/Images/Mohan-muruge.jpg';
+import './Comments.scss';
 
 export default function Comments(props) {
     return (

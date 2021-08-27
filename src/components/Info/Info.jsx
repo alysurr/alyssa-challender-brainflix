@@ -1,6 +1,7 @@
 import React from 'react'
 import viewIcon from '../../assets/Icons/Icon-views.svg';
 import likeIcon from '../../assets/Icons/Icon-likes.svg';
+import './Info.scss';
 
 export default function Info(props) {
     return (

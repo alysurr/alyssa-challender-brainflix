@@ -1,0 +1,113 @@
+@import "../../partials/mixins";
+@import "../../partials/partials";
+@import "../../App";
+@use '../../partials/typography' as *;
+
+
+// ----- Upload Page -----
+
+.upload {
+  margin: 1rem;
+  @include tablet {
+    margin: 1rem 2rem;
+  }
+  @include desktop {
+    margin: 1rem 8rem;
+  }
+  &__header {
+    padding: 1rem 0 2rem;
+    @include tablet {
+      border-bottom: 1px solid $brainflix-mercury;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__form-container {
+    @include desktop {
+      display: flex;
+    }
+  }
+  &__thumbnail {
+    width: 100%;
+    border-radius: 5px;
+    margin: 0.2rem 0 1rem;
+    @include tablet {
+      width: 22rem;
+      margin-bottom: 2rem;
+    }
+    @include desktop {
+      margin-right: 2rem;
+    }
+  }
+  &__input {
+    background-color: $brainflix-albaster;
+    border: 1px solid $brainflix-mercury;
+    border-radius: 4px;
+    padding: 0.75rem;
+    color: #000;
+    overflow-wrap: break-word;
+    width: 100%;
+    font-family: "Avenir";
+    resize: none;
+    margin: 0.2rem 0 1rem;
+    &:focus {
+        outline: none;
+        border: 2px solid $brainflix-blue;
+    }
+    &--description {
+      @extend .upload__input;
+        height: 8rem;
+
+      @include desktop {
+        height: 6.25rem;
+      }
+    }
+  }
+  &__button-container {
+    @include tablet {
+      border-top: 1px solid $brainflix-mercury;
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+    }
+  }
+  &__button {
+    background-color: $brainflix-blue;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    color: white;
+    height: 3rem;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    &:hover {
+      background-color: $brainflix-blue-dark;
+    }
+    @include tablet {
+      width: 10rem;
+      font-size: 1rem;
+    }
+  }
+  &__cancel {
+    @extend h4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 0;
+    height: 3rem;
+    width: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $brainflix-blue;
+    font-weight: bold;
+    @include tablet {
+      width: 10rem;
+      height: 4rem;
+    }
+    &:hover {
+      color: $brainflix-blue-dark;
+    }
+  }
+}

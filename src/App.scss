@@ -1,392 +1,100 @@
-@import 'partials/mixins';
-@import 'partials/partials';
+@import "partials/mixins";
+@import "partials/partials";
 @use 'partials/typography' as *;
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 // ----- Fonts -----
-h1,h2,h3,h4,h5,h6,p,label {
-    font-family: 'Avenir';
-    color: $brainflix-black;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+  font-family: "Avenir";
+  color: $brainflix-black;
 }
 
 h1 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 900;
-    font-style: normal;
-    @include tablet {
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-    }
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 900;
+  font-style: normal;
+  @include tablet {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 h2 {
-    font-size: 1rem;
-    line-height: 1.375rem;
-    font-weight: 900;
-    font-style: normal;
-    @include tablet {
-        font-size:1.125rem;
-        line-height: 22px;
-    }
+  font-size: 1rem;
+  line-height: 1.375rem;
+  font-weight: 900;
+  font-style: normal;
+  @include tablet {
+    font-size: 1.125rem;
+    line-height: 22px;
+  }
 }
 
 h3 {
-    font-size: 0.875rem;
-    line-height:1.125rem;
-    font-weight: 900;
-    font-style: normal;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  font-weight: 900;
+  font-style: normal;
 }
 
 h4 {
-    font-size: 0.875rem;
-    line-height:1.125rem;
-    font-weight: 300;
-    font-style: normal;
-    @include tablet {
-        font-size: 1rem;
-        line-height: 1.375rem;
-    }
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  font-weight: 300;
+  font-style: normal;
+  @include tablet {
+    font-size: 1rem;
+    line-height: 1.375rem;
+  }
 }
 
-h6, label {
-    font-size: 0.75rem;
-    line-height: 1.25;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-style: normal;
-    color: $brainflix-silver;
+h6,
+label {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: normal;
+  color: $brainflix-silver;
 }
 
 p {
-    font-size: 0.875rem;
-    line-height:1.125rem;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
 }
 
 // ----- Container -----
 
 @include desktop {
-    .container {
-        display: flex;
-        &--right {
-            border-left:  1px solid $brainflix-silver;
-            padding-left: 1rem;
-            padding-right: 8rem;
-        }
-    }
-}
-
-// ----- Header Component -----
-
-header {
+  .container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    @include tablet {
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 1rem 2rem;
+    &--right {
+      border-left: 1px solid $brainflix-silver;
+      padding-left: 1rem;
+      padding-right: 8rem;
     }
-    @include desktop {
-        margin: 1rem 8rem;
-    }
-}
-
-.header__logo {
-    height: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-.header__container {
-    margin-bottom: 1rem;
-    @include tablet {
-        margin-bottom: 0;
-        display: inline-flex;
-        align-items: center;
-    }
-}
-
-.header__search-bar {
-    margin: 0.5rem 0;
-    position: relative;
-
-}
-
-.header__input {
-    background-color: #FAFAFA;
-    border: 2px solid #E1E1E1;
-    border-radius: 5px;
-    height: 3rem;
-    width: 90vw;
-    @include tablet {
-        width: 15rem;
-    }
-}
-
-.header__input::placeholder {
-    padding-left: 3rem;
-    font-size: 0.875rem;
-    color: #323232;
-}
-
-.header__upload {
-    display: inline-flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.header__img {
-    height: 3rem;
-    width: 3rem;
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: left;
-    margin-left: 1rem;
-}
-
-.header__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    border: none;
-    color: #fff;
-    background-color: #0095ff;
-    border-radius: 5px;
-    font-weight: bold;
-    font-style: normal;
-    text-transform: uppercase;
-    @include tablet {
-        width: 15vw;
-        margin-left: 1rem;
-    }
-    @include desktop {
-        width: 10vw;
-    }
-}
-
-.header__icon {
-    padding-right: 1rem;
-}
-
-.header__search-icon {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-}
-
-// ----- Video Component -----
-
-video {
-    width: 100%;
-    max-height: 183px;
-    background-color: #000;
-    @include tablet {
-        max-height: 400px;
-    }
-    @include desktop {
-        max-height: 540px;
-    }
-}
-
-// ----- Video Info Component ----- 
-
-.video-info {
-    margin: 1rem;
-    @include tablet {
-        margin: 3rem 2rem;
-    }
-    @include desktop {
-        margin: 2rem 0 2rem 8rem;
-    }
-    &__date {
-        margin-left: 1rem;
-        color: $brainflix-silver;
-    }
-    &__stats {
-        margin-left: 0.5rem;
-        margin-right: 1rem;
-    }
-    &__subheader {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid $brainflix-silver;
-        @include tablet {
-            flex-direction: row;
-            justify-content: space-between;
-            padding-top: 1rem;
-        }
-        &--left {
-            display: inline-flex;
-            align-items: center;
-            padding-bottom: 1rem;
-            @include tablet {
-                padding-bottom: 0;
-            }
-        }
-        &--right {
-            display: inline-flex;
-            align-items: center;
-            padding-right: 2rem;
-        }
-    }
-    &__description {
-        margin: 1rem 0;
-        @include tablet {
-            width: 70vw;
-        }
-        @include desktop {
-            width: 38vw;
-        }
-    }
-}
-
-// ----- Comments Component ----- 
-
-.comment {
-    margin: 1rem;
-    @include tablet {
-        margin: 1rem 2rem;
-    }
-    @include desktop {
-        margin: 1rem 0 1rem 8rem;
-    }
-    &__counter {
-        padding: 1rem 0;
-    }
-    &__label {
-        margin-left: 4rem;
-    }
-    &__img {
-        height: 3rem;
-        width: 3rem;
-        border-radius: 100%;
-        object-fit: cover;
-        object-position: left;
-    }
-    &__form-container {
-        display: flex;
-        justify-content: left;
-        border-bottom: 1px solid $brainflix-silver;
-        padding-bottom: 1rem;
-        @include tablet {
-            justify-content: left;
-        }
-    }
-    
-    &__form {
-        margin-left: 1rem;
-
-        @include tablet {
-            display: inline-flex;
-        }
-    }
-    &__input {
-        background-color: $brainflix-albaster;
-        border: 2px solid $brainflix-mercury;
-        border-radius: 4px;
-        padding: .75rem;
-        height: 6rem;
-        color: #000;
-        overflow-wrap: break-word;
-        width: 70vw;
-        font-family: 'Avenir';
-        resize: none;
-        @include tablet {
-            height: 3rem;
-            width: 27rem;
-        }
-    }
-    &__button {
-        background-color: $brainflix-blue;
-        text-transform: uppercase;
-        margin-top: 1rem;
-        color: white;
-        height: 3rem;
-        border-radius: 5px;
-        border: none;
-        width: 70vw;
-        font-weight: bold;
-        @include tablet {
-            width: 10rem;
-            margin: 0 1rem;
-        }
-    }
-}
-
-.comments {
-    &__container {
-        display: flex;
-        border-bottom: 1px solid $brainflix-silver;
-        padding: 1rem 0;
-    }
-    &__inner {
-        width: 75vw;
-        padding-left: 1rem;
-        @include desktop {
-            width: 85%;
-        }
-    }
-    &__flex {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 1rem;
-        @include tablet {
-            justify-content: left;
-        }
-    }
-    &__date {
-        color: $brainflix-silver;
-        margin-left: 1rem;
-    }
-    &__img-placeholder {
-        height: 3rem;
-        width: 3rem;
-        border-radius: 100%;
-        background-color: $brainflix-mercury;
-    }
+  }
 }
 
 
-// ----- Sidebar Component ----- 
 
-.sidebar {
-    margin: 1rem;
-    @include tablet {
-        margin: 1rem 2rem;
-        max-width: 40vw;
-    }
-    @include desktop {
-        margin: 0;
-    }
-    &__header {
-        margin: 2rem 0;
-    }
-    &__container {
-        display: flex;
-        margin-bottom: 1rem;
-    }
-    &__thumbnail {
-        height: 4.375rem;
-        width: 7.5rem;
-        border-radius: 5px;
-    }
-    &__info {
-        padding-left: 1rem;
-    }
-    &__title {
-        margin-bottom: .5rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;  
-        overflow: hidden;
-    }
-}
+
+
+
+
+

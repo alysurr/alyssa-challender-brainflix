@@ -1,0 +1,18 @@
+@import "../../partials/mixins";
+@import "../../partials/partials";
+@import "../../App";
+@use '../../partials/typography' as *;
+
+// ----- Video Component -----
+
+video {
+  width: 100%;
+  max-height: 183px;
+  background-color: #000;
+  @include tablet {
+    max-height: 400px;
+  }
+  @include desktop {
+    max-height: 540px;
+  }
+}

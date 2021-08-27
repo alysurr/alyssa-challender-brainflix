@@ -1,0 +1,114 @@
+@import "../../partials/mixins";
+@import "../../partials/partials";
+@import "../../App";
+@use '../../partials/typography' as *;
+
+
+// ----- Header Component -----
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid $brainflix-mercury;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 2rem;
+    padding-bottom: 1rem;
+  }
+  @include desktop {
+    margin: 1rem 8rem;
+  }
+}
+
+.header__logo {
+  height: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.header__container {
+  margin-bottom: 1rem;
+  @include tablet {
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.header__search-bar {
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.header__input {
+  background-color: #fafafa;
+  border: 2px solid #e1e1e1;
+  border-radius: 5px;
+  height: 3rem;
+  width: 90vw;
+    &:focus {
+        outline: none;
+        border: 2px solid $brainflix-blue;
+    }
+  @include tablet {
+    width: 15rem;
+  }
+}
+
+.header__input::placeholder {
+  padding-left: 3rem;
+  font-size: 0.875rem;
+  color: #323232;
+}
+
+.header__upload {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header__img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: left;
+  margin-left: 1rem;
+}
+
+.header__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  color: #fff;
+  background-color: #0095ff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+    &:hover {
+      background-color: $brainflix-blue-dark;
+    }
+  @include tablet {
+    width: 15vw;
+    margin-left: 1rem;
+  }
+  @include desktop {
+    width: 10vw;
+  }
+}
+
+.header__icon {
+  padding-right: 1rem;
+}
+
+.header__search-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}

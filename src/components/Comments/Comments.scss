@@ -1,0 +1,117 @@
+@import "../../partials/mixins";
+@import "../../partials/partials";
+@import "../../App";
+@use '../../partials/typography' as *;
+
+// ----- Comments Component -----
+
+.comment {
+  margin: 1rem;
+  @include tablet {
+    margin: 1rem 2rem;
+  }
+  @include desktop {
+    margin: 1rem 0 1rem 8rem;
+  }
+  &__counter {
+    padding: 1rem 0;
+  }
+  &__label {
+    margin-left: 4rem;
+  }
+  &__img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: left;
+  }
+  &__form-container {
+    display: flex;
+    justify-content: left;
+    border-bottom: 1px solid $brainflix-silver;
+    padding-bottom: 1rem;
+    @include tablet {
+      justify-content: left;
+    }
+  }
+
+  &__form {
+    margin-left: 1rem;
+
+    @include tablet {
+      display: inline-flex;
+    }
+  }
+  &__input {
+    background-color: $brainflix-albaster;
+    border: 2px solid $brainflix-mercury;
+    border-radius: 4px;
+    padding: 0.75rem;
+    height: 6rem;
+    color: #000;
+    overflow-wrap: break-word;
+    width: 70vw;
+    font-family: "Avenir";
+    resize: none;
+    &:focus {
+        outline: none;
+        border: 2px solid $brainflix-blue;
+    }
+    @include tablet {
+      height: 3rem;
+      width: 27rem;
+    }
+  }
+  &__button {
+    background-color: $brainflix-blue;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    color: white;
+    height: 3rem;
+    border-radius: 5px;
+    border: none;
+    width: 70vw;
+    font-weight: bold;
+    &:hover {
+      background-color: $brainflix-blue-dark;
+    }
+    @include tablet {
+      width: 10rem;
+      margin: 0 1rem;
+    }
+  }
+}
+
+.comments {
+  &__container {
+    display: flex;
+    border-bottom: 1px solid $brainflix-silver;
+    padding: 1rem 0;
+  }
+  &__inner {
+    width: 75vw;
+    padding-left: 1rem;
+    @include desktop {
+      width: 85%;
+    }
+  }
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    @include tablet {
+      justify-content: left;
+    }
+  }
+  &__date {
+    color: $brainflix-silver;
+    margin-left: 1rem;
+  }
+  &__img-placeholder {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    background-color: $brainflix-mercury;
+  }
+}
