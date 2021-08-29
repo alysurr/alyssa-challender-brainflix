@@ -1,13 +1,16 @@
 import React, { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomePage from "./pages/HomePage/HomePage";
 import UploadPage from "./pages/UploadPage/UploadPage";
+import Header from './components/Header/Header';
 
 const App = () => {
   return (
-      <BrowserRouter>
+    <BrowserRouter>
+      <Header />
       <Switch>
         <Route path="/" exact component={HomePage}/>
-        <Route path="/upload" component={UploadPage}/>
+        <Route path="/upload" component={UploadPage} />
+        <Route path="/video/:videoId" component={HomePage} />
       </Switch>
     </BrowserRouter>
   )

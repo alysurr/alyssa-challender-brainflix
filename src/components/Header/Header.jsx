@@ -3,14 +3,11 @@ import profileImg from '../../assets/Images/Mohan-muruge.jpg';
 import logo from '../../assets/Logo/Logo-brainflix.svg';
 import searchIcon from '../../assets/Icons/Icon-search.svg';
 import uploadIcon from '../../assets/Icons/Icon-upload.svg';
-import searchData from '../../data/videos.json';
 import './Header.scss';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 export default function Header() {
-    const [searchTerm, setSearchTerm] = useState('');
     return (
         <header>
             <div className="header__container-logo">

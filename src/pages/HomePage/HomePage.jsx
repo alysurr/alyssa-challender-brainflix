@@ -1,48 +1,75 @@
 import '../../App.scss';
 import React, { Component } from 'react';
-import Header from '../../components/Header/Header.jsx';
 import Video from '../../components/Video/Video.jsx';
 import Info from '../../components/Info/Info.jsx';
 import Comments from '../../components/Comments/Comments.jsx';
 import Sidebar from '../../components/Sidebar/Sidebar.jsx';
-import videosData from '../../data/videos.json';
-import videosDetails from '../../data/video-details.json';
-
-
+import { API_KEY, API_URL } from '../../utils';
+import axios from 'axios';
 
 class HomePage extends Component  {
   
+  // Set Default State
   state = {
-    videos: videosData,
-    selectedVideo: videosData[0],
-    details: videosDetails,
-    selectedDetails: videosDetails[0]
+    videoList: [],
+    selectedVideo: null
   }
 
-  changeVideo = (id) => {
-    let newVideo = this.state.videos.find(video => video.id === id)
-    let newDetails = this.state.details.find(detail => detail.id === id)
-
-    this.setState({
-      selectedVideo: newVideo,
-      selectedDetails: newDetails
-    })
+  //G rab Video Details with given videoId
+  getVideoDetails = (videoId) => {
+    axios
+      .get(`${API_URL}/${videoId}${API_KEY}`)
+      .then(response => {
+        this.setState({
+          selectedVideo: response.data
+        });
+      })
   }
 
+  componentDidMount() {
+    // Grab videoId from URL
+    const currentVideoId = this.props.match.params.videoId;
+
+    axios
+      .get(`${API_URL}${API_KEY}`) 
+      .then(response => {
+
+        this.setState({
+          videoList: response.data,
+        });
+        // Assign Default Video
+        const defaultVideo = response.data[0];
+        const videoLoad = currentVideoId ? currentVideoId : defaultVideo.id;
+        this.getVideoDetails(videoLoad);
+      });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+            prevProps.match.params.videoId !== this.props.match.params.videoId
+        ) {
+            this.getVideoDetails(this.props.match.params.videoId);
+        }
+  }
   render() {
-    return (
+    if(!this.state.selectedVideo){
+            return <h2>Loading...</h2>;
+    }
+    
+    const filterCurrentVideo = this.state.selectedVideo
+      ? this.state.videoList.filter(video => video.id !== this.state.selectedVideo.id)
+      : this.state.videoList;
+
+    return ( 
       <>
-      <Header />
       <Video video={this.state.selectedVideo}/>
       <div className="container">
         <div className="container--left">
-          <Info video={this.state.selectedVideo} detail={this.state.selectedDetails}/>
-          <Comments video={this.state.selectedVideo} detail={this.state.selectedDetails}/>
+          <Info video={this.state.selectedVideo}/>
+          <Comments video={this.state.selectedVideo}/>
         </div>
         <div className="container--right">
-          <Sidebar
-            videos={this.state.videos.filter(video => this.state.selectedVideo.id !== video.id)}
-            handleClick={this.changeVideo} />
+          <Sidebar videoList={filterCurrentVideo} />
         </div>
       </div>
       </>

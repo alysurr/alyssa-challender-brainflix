@@ -1,6 +1,7 @@
 import React from 'react'
 import videoThumb from '../../assets/Images/Upload-video-preview.jpg';
 import './Upload.scss';
+import { Link } from 'react-router-dom';
 
 export default function Upload() {
     return (
@@ -24,11 +25,8 @@ export default function Upload() {
             </div>                
                 <div className="upload__button-container">
                     <button type="submit" className="upload__button">Publish</button>
-                    <div className="upload__cancel">Cancel</div>
+                    <Link to="/"><div className="upload__cancel">Cancel</div></Link>
                 </div>
-
-
-
         </section>
     )
 }

@@ -19,7 +19,7 @@ header {
     padding-bottom: 1rem;
   }
   @include desktop {
-    margin: 1rem 8rem;
+    margin: 1rem 8rem 0;
   }
 }
 
@@ -82,7 +82,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 72vw;
     height: 3rem;
     color: #fff;
     background-color: #0095ff;

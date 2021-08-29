@@ -1,11 +1,12 @@
 import React from 'react'
 import profileImg from '../../assets/Images/Mohan-muruge.jpg';
-import './Comments.scss';
+import './Comments.scss'
 
-export default function Comments(props) {
-    return (
+const Comments= ({ video }) =>   {
+    console.log(video)
+    return ( 
         <section className="comment">
-            <h2 className="comment__counter"> {props.detail.comments.length} Comments</h2>
+            <h2 className="comment__counter"> {video.comments.length} Comments</h2>
             <h6 className="comment__label">Join the Conversation</h6>
         <div className="comment__form-container">
             
@@ -18,7 +19,7 @@ export default function Comments(props) {
         </div>
 
         <div className="comments">
-            {props.detail.comments.map(comment => {
+            {video.comments.map(comment => {
                     return (
                         <article key={comment.id} className="comments__container">
                             <aside>
@@ -38,3 +39,4 @@ export default function Comments(props) {
         </section>
     )
 }
+export default Comments;
