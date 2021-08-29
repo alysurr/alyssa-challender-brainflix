@@ -3,7 +3,6 @@ import profileImg from '../../assets/Images/Mohan-muruge.jpg';
 import './Comments.scss'
 
 const Comments= ({ video }) =>   {
-    console.log(video)
     return ( 
         <section className="comment">
             <h2 className="comment__counter"> {video.comments.length} Comments</h2>

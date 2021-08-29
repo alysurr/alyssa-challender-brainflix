@@ -15,7 +15,7 @@ class HomePage extends Component  {
     selectedVideo: null
   }
 
-  //G rab Video Details with given videoId
+  // Grab video details with given videoId
   getVideoDetails = (videoId) => {
     axios
       .get(`${API_URL}/${videoId}${API_KEY}`)
@@ -29,33 +29,41 @@ class HomePage extends Component  {
   componentDidMount() {
     // Grab videoId from URL
     const currentVideoId = this.props.match.params.videoId;
-
+    // Call to grab video list from API
     axios
       .get(`${API_URL}${API_KEY}`) 
       .then(response => {
-
         this.setState({
-          videoList: response.data,
+          videoList: response.data
         });
+
         // Assign Default Video
         const defaultVideo = response.data[0];
+
+        // Check ID
         const videoLoad = currentVideoId ? currentVideoId : defaultVideo.id;
+        
+        // Call function to grab video details
         this.getVideoDetails(videoLoad);
       });
   }
 
   componentDidUpdate(prevProps) {
+    // Compare ID to only make update request on url change
     if (
             prevProps.match.params.videoId !== this.props.match.params.videoId
         ) {
             this.getVideoDetails(this.props.match.params.videoId);
         }
   }
+
   render() {
+    // Show Loading... when the value is still null
     if(!this.state.selectedVideo){
             return <h2>Loading...</h2>;
     }
     
+    // Filter currently shown video from sidebar
     const filterCurrentVideo = this.state.selectedVideo
       ? this.state.videoList.filter(video => video.id !== this.state.selectedVideo.id)
       : this.state.videoList;

@@ -4,6 +4,12 @@ import './Upload.scss';
 import { Link } from 'react-router-dom';
 
 export default function Upload() {
+    const handleOnSubmit = e => {
+        e.preventDefault();
+        alert("Your upload has been submitted!")
+        window.location.href="/";
+  };
+
     return (
         <section className="upload">
             <h1 className="upload__header"> Upload Video</h1>
@@ -23,9 +29,11 @@ export default function Upload() {
                     <textarea type="text" className="upload__input--description" placeholder="Add a description of your video"/>
                 </form>
             </div>                
-                <div className="upload__button-container">
+            <div>
+                <form id="form" className="upload__button-container" onClick={handleOnSubmit}>
                     <button type="submit" className="upload__button">Publish</button>
                     <Link to="/"><div className="upload__cancel">Cancel</div></Link>
+                </form>
                 </div>
         </section>
     )
