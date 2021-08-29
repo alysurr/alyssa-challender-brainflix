@@ -4,11 +4,14 @@ import './Upload.scss';
 import { Link } from 'react-router-dom';
 
 export default function Upload() {
+    // After form submission, it should notify about “upload” and redirect to a home page with the default video selected.
     const handleOnSubmit = e => {
         e.preventDefault();
+        // Notify on upload
         alert("Your upload has been submitted!")
+        // Redirect to Homepage
         window.location.href="/";
-  };
+    };
 
     return (
         <section className="upload">
@@ -34,7 +37,7 @@ export default function Upload() {
                     <button type="submit" className="upload__button">Publish</button>
                     <Link to="/"><div className="upload__cancel">Cancel</div></Link>
                 </form>
-                </div>
+            </div>
         </section>
     )
 }

@@ -2,7 +2,13 @@ import React from 'react'
 import profileImg from '../../assets/Images/Mohan-muruge.jpg';
 import './Comments.scss'
 
-const Comments= ({ video }) =>   {
+const Comments = ({ video }) => {
+    const handleOnSubmit = e => {
+        e.preventDefault();
+        // Notify comment has been submitted
+        alert("Comment submitted.")
+    };
+
     return ( 
         <section className="comment">
             <h2 className="comment__counter"> {video.comments.length} Comments</h2>
@@ -13,7 +19,7 @@ const Comments= ({ video }) =>   {
             <div className="error"></div>
             <form id="form" className="comment__form">
                 <textarea type="text" className="comment__input" placeholder="Write comment here"/>
-                <button type="submit" className="comment__button">Comment</button>
+                <button type="submit" className="comment__button"  onClick={handleOnSubmit}>Comment</button>
             </form>
         </div>
 
