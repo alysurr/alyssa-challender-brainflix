@@ -4,7 +4,7 @@ import Video from '../../components/Video/Video.jsx';
 import Info from '../../components/Info/Info.jsx';
 import Comments from '../../components/Comments/Comments.jsx';
 import Sidebar from '../../components/Sidebar/Sidebar.jsx';
-import { API_KEY, API_URL } from '../../utils';
+import { API_URL } from '../../utils';
 import axios from 'axios';
 
 class HomePage extends Component  {
@@ -18,7 +18,7 @@ class HomePage extends Component  {
   // Grab video details with given videoId
   getVideoDetails = (videoId) => {
     axios
-      .get(`${API_URL}/${videoId}${API_KEY}`)
+      .get(`${API_URL}/${videoId}`)
       .then(response => {
         this.setState({
           selectedVideo: response.data
@@ -31,7 +31,7 @@ class HomePage extends Component  {
     const currentVideoId = this.props.match.params.videoId;
     // Call to grab video list from API
     axios
-      .get(`${API_URL}${API_KEY}`) 
+      .get(`${API_URL}`) 
       .then(response => {
         this.setState({
           videoList: response.data
