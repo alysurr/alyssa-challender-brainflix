@@ -1,0 +1,71 @@
+const express = require('express');
+const router = express.Router();
+const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
+
+const videosFilePath = './data/videos.json';
+
+const readVideos = () => {
+  const fileContent = fs.readFileSync(videosFilePath);
+  const parsedFileContent = JSON.parse(fileContent);
+  return parsedFileContent;
+}
+
+// GET all Videos endpoint
+router.get('/', (_req, res) => {
+  try {
+    const videos = readVideos();
+    return res.status(200).json(videos);
+  } catch(err) {
+    return res.status(500).json({ error: "File cannot be read." }) 
+  }
+});
+
+router.get('/:videoId'), function (_req, res) {
+    var currentVideo = videos.filter(function(video) {
+        if (video.id == req.params.id) {
+            return true;
+        }
+    });
+    if (currentVideo.length == 1) {
+        res.json(currentVideo[0])
+    } else {
+        res.status(404);
+        res.json({ message: "Not Found" });
+    }
+};
+
+router.post('/', (req, res) => {
+  console.log('Request body object: ', req.body);
+
+  const newVideo = {
+    id: v4(),
+    title: req.body.title,
+    content: req.body.content
+  }
+
+  const videos = readVideos();
+
+  videos.push(newVideo);
+
+  fs.writeFileSync(videosFilePath, JSON.stringify(videos));
+
+
+  return res.status(201).json(newVideo);
+});
+
+router.post('/:videoId'), function (_req, res) {
+    const videoId = req.params.id;
+        for (let video of videos) {
+        if (video.id === id) {
+            res.json(video);
+            return;
+        }
+    }
+
+    // Sending 404 when not found something is a good practice
+    res.status(404).send('Book not found');
+};
+
+// Finally, export the router for use in index.js
+module.exports = router;
