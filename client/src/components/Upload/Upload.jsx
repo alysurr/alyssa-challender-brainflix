@@ -10,7 +10,7 @@ export default function Upload() {
         // Notify on upload
         alert("Your upload has been submitted!")
         // Redirect to Homepage
-        window.location.href="/";
+        this.props.history.push("/");
     };
 
     return (
