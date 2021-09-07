@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "brainflix api server",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "alyssa challender",
   "license": "ISC",
   "dependencies": {
