@@ -16,9 +16,9 @@ class HomePage extends Component  {
   }
 
   // Grab video details with given videoId
-  getVideoDetails = (videoId) => {
+  getVideoDetails = (id) => {
     axios
-      .get(`${API_URL}/${videoId}`)
+      .get(`${API_URL}videoDetails/${id}`)
       .then(response => {
         this.setState({
           selectedVideo: response.data
@@ -27,11 +27,12 @@ class HomePage extends Component  {
   }
 
   componentDidMount() {
+    document.title = "BrainFlix";
     // Grab videoId from URL
-    const currentVideoId = this.props.match.params.videoId;
+    const currentVideoId = this.props.match.params.id;
     // Call to grab video list from API
     axios
-      .get(`${API_URL}`) 
+      .get(`${API_URL}videoList`) 
       .then(response => {
         this.setState({
           videoList: response.data
@@ -49,9 +50,11 @@ class HomePage extends Component  {
   }
 
   componentDidUpdate(prevProps) {
+    document.title = "BrainFlix | Video";
+
     // Compare ID to only make update request on url change
-    if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
-      this.getVideoDetails(this.props.match.params.videoId);
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.getVideoDetails(this.props.match.params.id);
       window.scrollTo(0, 0);
     }
   }
