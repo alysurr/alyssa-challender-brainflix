@@ -27,6 +27,7 @@ class HomePage extends Component  {
   }
 
   componentDidMount() {
+    document.title = "BrainFlix";
     // Grab videoId from URL
     const currentVideoId = this.props.match.params.id;
     // Call to grab video list from API
@@ -49,6 +50,8 @@ class HomePage extends Component  {
   }
 
   componentDidUpdate(prevProps) {
+    document.title = "BrainFlix | Video";
+
     // Compare ID to only make update request on url change
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.getVideoDetails(this.props.match.params.id);

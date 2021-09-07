@@ -8,7 +8,7 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path="/" exact component={HomePage}/>
+        <Route exact path="/" component={HomePage}/>
         <Route path="/upload" component={UploadPage} />
         <Route path="/video/:id" component={HomePage} />
       </Switch>
