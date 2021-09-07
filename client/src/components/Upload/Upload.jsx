@@ -2,7 +2,6 @@ import React from 'react'
 import videoThumb from '../../assets/Images/Upload-video-preview.jpg';
 import './Upload.scss';
 import { Link } from 'react-router-dom';
-import { v4 as uuidv4 } from "uuid";
 import axios from 'axios';
 import { API_URL } from '../../utils';
 
@@ -10,56 +9,25 @@ export default function Upload() {
     // After form submission, it should notify about “upload” and redirect to a home page with the default video selected.
     const handleOnSubmit = e => {
         e.preventDefault();
-        let id = uuidv4();
 
-        const newVideo = {
-            "id": `${id}`,
-            "title": e.target.title.value,
-            "channel": "Psuedochannel",
-            "image": "../images/image9.jpeg",
-            "description": e.target.description.value,
-            "views": "0",
-            "likes": "0",
-            "duration": "0:20",
-            "video": "../video/bs-sample-video.mp4",
-            "timestamp": 1534234842000,
-            "comments": [
-                {
-                'name': "Simon Laurent",
-                'comment': "Cool new video.",
-                'id': "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-                'likes': 0,
-                'timestamp': 1534234842000
-                },
-                {
-                'name': "Gary Wong",
-                'comment': "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-                'id': "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-                'likes': 0,
-                'timestamp': 1544595784046
-                },
-                {
-                'name': "Theodore Duncan",
-                'comment': "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
-                'id': "993f950f-df99-48e7-bd1e-d95003cc98f1",
-                'likes': 0,
-                'timestamp': 1542262984046
-                }
-            ]
-        },
+        if (!e.target.title.value || !e.target.description.value) {
+            alert("Title and/or Description cannot be blank.");
+        } else {
+            axios
+            .post(`${API_URL}/videoList`, {
+            description: e.target.description.value,
+            title: e.target.title.value
+            })
+            .then(res => {
+            console.log(res);
+            });
+        }
 
-        newVideoUpload = {
-            'title': e.target.title.value,
-            'image': "../images/image9.jpeg",
-            'channel': e.target.description.value,
-            'description': "New Upload",
-            'id': `${id}`
-        };
-        axios.post(`${API_URL}/videoList`, { newVideo: newVideoUpload })
-        .then(res => {
-            console.log(res)
-            axios.post(`${API_URL}/videoDetails`, { newVideo })
-        })
+        // axios.post(`${API_URL}/videoList`, { video: newVideoList })
+        // .then(res => {
+        //     console.log(res)
+        //     axios.post(`${API_URL}/videoDetails`, { newVideoDetails })
+        // })
 
         // Notify on upload
         alert("Your upload has been submitted!")
